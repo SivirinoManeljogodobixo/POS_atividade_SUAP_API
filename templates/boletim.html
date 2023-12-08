@@ -3,42 +3,75 @@
 {% block content %}
 
 {% block title %}
-<form action=" {{ url_for('boletim') }}" method="post">
-  <select name="ano">
-    <option value="2020" name="ano">2020</option>
-    <option value="2021" name="ano">2021</option>
-    <option value="2022" name="ano">2022</option>
-    <option value="2023" name="ano">2023</option>
-  </select>
-  <input type="submit" value="enviar">
-</form>
-<table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Disciplina</th>
-        <th scope="col">1BM</th>
-        <th scope="col">2BM</th>
-        <th scope="col">3BM</th>
-        <th scope="col">4BM</th>
-      </tr>
-      {% for disciplina in boletim %}
-      <tr>
-        <td scope="row">{{disciplina['disciplina']}}</td>
-        <td scope="row">{{disciplina['nota_etapa_1']['nota']}}</td>
-        <td scope="row">{{disciplina['nota_etapa_2']['nota']}}</td>
-        <td scope="row">{{disciplina['nota_etapa_3']['nota']}}</td>
-        <td scope="row">{{disciplina['nota_etapa_4']['nota']}}</td>
 
-        </td>
-      </tr>
-      {% endfor %}
+  <div class="container-fluid mt-4">
+    <div class="row">
+  
+      <div class="col-md-12 d-flex align-items-center justify-content-center py-2">
+        <label class="ls-label">
+          <form action=" {{ url_for('boletim') }}" method="post">
+            <div class="ls-custom-select d-flex justify-content-center align-items-center">
+              <select class="form-select mx-3" name="ano">
+                <option value="----" selected>----</option>
+                <option value="2020" name="ano">2020</option>
+                <option value="2021" name="ano">2021</option>
+                <option value="2022" name="ano">2022</option>
+                <option value="2023" name="ano">2023</option>
+              </select>
+              <input class="btn btn-success" type="submit" value="enviar">
+            </div>
+          </form>
+        </label>
+      </div>
+  
+    </div>
+  
+    <div class="row v-full">
+  
+      <div class="col-md-12 d-flex align-items-center justify-content-center">
+        <div class="table-responsive">
+          <table class="table table-hover table-sm border-rounded">
+            <thead>
+              <tr>
+                <th scope="col">Disciplina</th>
+                <th scope="col">1BM</th>
+                <th scope="col">2BM</th>
+                <th scope="col">3BM</th>
+                <th scope="col">4BM</th>
+              </tr>
+              {% for disciplina in boletim %}
+              <tr>
+                <td scope="row">{{disciplina['disciplina']}}</td>
+                <td scope="row">{{disciplina['nota_etapa_1']['nota']}}</td>
+                <td scope="row">{{disciplina['nota_etapa_2']['nota']}}</td>
+                <td scope="row">{{disciplina['nota_etapa_3']['nota']}}</td>
+                <td scope="row">{{disciplina['nota_etapa_4']['nota']}}</td>
+        
+                </td>
+              </tr>
+              {% endfor %}
+        
+            </thead>
+           
+        
+          </table>
+            <p><a class="text-light btn btn-dark btn-lg" href="{{url_for('logout')}}" style="text-decoration: none;">Logout</a></p>
+        </div>
+  
+      </div>
+     
+    </div>
 
-    </thead>
-   
+    <div class="row footer align-items-center py-4">
+      <div class="col text-center px-5 text-dark">
+        &copy; <span id="ano">2023</span> - IF-RN
+      </div>
+  </div>
+    
+  </div>
 
-  </table>
 
-  <p><a href="{{url_for('logout')}}">Logout</a></p>
+
 {% endblock %}
 
 {% endblock %}

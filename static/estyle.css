@@ -7,3 +7,13 @@
         background-size: cover;
         backdrop-filter: blur(10px);
 }
+
+.v-full{
+        min-height: calc(100vh - 150px); 
+        height:calc(100% - 150px); 
+      }
+
+.footer {
+        background-color: #D9D9D9;
+        font-family: 'Abel', sans-serif;
+      }
