@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container-fluid fundo">
+        <div class="row d-flex justify-content-center align-items-center vh-100">
+            <div class="card text-bg-dark mb-3" style="max-width: 18rem;">
+                <div class="card-body text-center">
+                   <img src="/static/img/logo ifrn.png" class="img-fluid rounded" style="background-color: rgb(255, 255, 255);"> 
+                  <h4 class="card-title"><a href="{{ url_for('index')}}" style="text-decoration: none;">Login suap</a></h4>
+                  <p class="card-text">Veja todas as suas informações cadastradas no suap</p>
+                  <p><a class="text-dark btn btn-light btn-lg" href="{{url_for('login')}}" style="text-decoration: none;">Login</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
